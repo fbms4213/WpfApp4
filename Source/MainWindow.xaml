@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Source"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <!--<Menu>
@@ -56,14 +56,102 @@
                 <ProgressBar Height="19" Width="100" Background="Green"></ProgressBar>
             </StackPanel>
         </StatusBar>-->
-        
-        
-        
+
+
+
 
 
 
         <!--<Calendar></Calendar>-->
         <!--<DatePicker></DatePicker>-->
 
+
+
+
+        <!--<ComboBox VerticalAlignment="Top">
+            <ComboBoxItem>Item1</ComboBoxItem>
+            <ComboBoxItem>Item2</ComboBoxItem>
+            <ComboBoxItem>Item3</ComboBoxItem>
+        </ComboBox>-->
+
+
+
+
+        <!--<ComboBox VerticalAlignment="Top">
+            <ComboBoxItem HorizontalContentAlignment="Stretch">
+                <Grid Height="80" Background="AliceBlue">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Image  Source="/wpf-logo.png"></Image>
+                    <TextBlock Grid.Column="1">Information</TextBlock>
+                    <Button Grid.Column="2" Width="72" Height="72">Information</Button>
+                </Grid>
+            </ComboBoxItem>
+        </ComboBox>-->
+
+
+
+
+        <!--<StackPanel>
+            <ListView Name="listView" ItemsSource="{Binding Users}"></ListView>
+            <Button Click="Button_Click">Add</Button>
+        </StackPanel>-->
+
+
+
+
+
+
+
+        <!--<ListView ItemsSource="{Binding Users}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding Firstname}"></GridViewColumn>
+                        <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding Lastname}"></GridViewColumn>
+                        <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}"></GridViewColumn>
+                        <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="auto"></GridViewColumn>
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="auto"></GridViewColumn>
+                        <GridViewColumn Header="DateOfBirth" DisplayMemberBinding="{Binding DateOfBirth}" Width="auto"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+
+        
+        
+        
+        
+
+        <ListView ItemsSource="{Binding Users}" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Image HorizontalAlignment="Left" Source="{Binding ImageUrl}" Height="100" Width="100"></Image>
+
+                        <StackPanel  HorizontalAlignment="Left"  Grid.Column="1" Margin="20">
+                            <TextBlock Text="{Binding Firstname}"></TextBlock>
+                            <TextBlock Text="{Binding Email}"></TextBlock>
+                            <TextBlock Text="{Binding DateOfBirth}"></TextBlock>
+                        </StackPanel>
+
+
+                        <Button Grid.Column="2" FontSize="24" Margin="10" Click="Button_Click_Template">Select</Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
